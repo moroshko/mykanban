@@ -1,0 +1,75 @@
+<div>
+	<div class="well well-small">
+		<span ng-gravatar="{{ app.currentUserEmail() }}"></span>
+		{{ app.currentUserName() }}
+		<button class="btn btn-mini" ng-click="app.logout()">Logout</button>
+	</div>
+
+	<div id="left-sidebar" class="display-inline-block" ng-include="'html/left-sidebar.html'"></div>
+
+	<div class="board display-inline-block" ng-click="taskClicked()">
+		<div class="board-title" contenteditable="true" ng-model="board.name"></div>
+		<div>
+			<div ng-repeat="column in board.columns" class="column-wrapper display-inline-block">
+				<div class="column-title-wrapper">
+					<span class="column-title" contenteditable="true" ng-model="column.title"></span>
+					<i class="icon icon-plus" tooltip="Add task to this column" ng-click="openNewTaskDialog($event, column)"></i>
+				</div>
+				<div class="tasks-wrapper"
+				     ui-options="{connectWith: '.tasks-wrapper',
+				                  placeholder: 'task-placeholder',
+				                  forcePlaceholderSize: true,
+				                  tolerance: 'pointer',
+				                  distance: 10,
+				                  receive: foo,
+				                  update: taskMoved}"
+				     ui-multi-sortable
+				     ng-model="board"
+				     model-subset="columns[{{ $index }}].tasks">
+					<div ng-repeat="task in column.tasks"
+					     class="{{ taskClasses(task) }}"
+					     ng-click="taskClicked($event, task)"
+					     tooltip="{{ task.block_reason }}">
+						<div class="gravatars">
+							<div ng-repeat="userId in task.user_ids" ng-gravatar="{{ app.userEmail(userId) }}"></div>
+						</div>
+						<span class="task-title">{{ task.title }}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="right-sidebar" class="display-inline-block" ng-include="'html/right-sidebar.html'"></div>
+
+	<div id="footer">
+		Made with <span class="love">Love</span> by <a href="//stackoverflow.com/users/247243/misha-moroshko">Misha Moroshko</a>.
+	</div>
+</div>
+
+<!-- modal and ng-include on the same element doesn't work well. -->
+<div modal="newEditTaskDialog" options="{dialogClass: 'modal new-edit-task'}">
+	<div ng-include="'html/new-edit-task.html'"></div>
+</div>
+
+<div modal="blockTaskDialog" options="{dialogClass: 'modal block-task'}">
+	<div ng-include="'html/block-task.html'"></div>
+</div>
+
+<div modal="deleteTasksConfirmation" options="{dialogClass: 'modal delete-tasks-confirmation'}">
+  <div ng-include="'html/delete-tasks-confirmation.html'"></div>
+</div>
+
+<!--
+<div>
+	newOrEditedTask =
+	<pre ng-bind="newOrEditedTask | json"></pre>
+</div>
+<div>
+	selectedTasks = <pre ng-bind="selectedTasks | json"></pre>
+</div>
+<div>
+	board =
+	<pre ng-bind="board | json"></pre>
+</div>
+-->

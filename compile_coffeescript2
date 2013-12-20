@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd app/coffee/controllers
+coffee -w -b -o ../../js/controllers *.coffee

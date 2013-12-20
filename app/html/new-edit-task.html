@@ -1,0 +1,51 @@
+<div class="modal-header">
+	<h3>{{ header }}</h3>
+</div>
+<div class="modal-body form-horizontal">
+	<div class="control-group">
+		<label class="control-label" for="task-title">Title:</label>
+		<div class="controls">
+			<input id="task-title" class="input-xlarge" type="text" ng-model="newOrEditedTask.title">
+			<p class="help-block">Short task description</p>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="task-description">Description:</label>
+		<div class="controls">
+			<textarea id="task-description" class="input-xlarge" ng-model="newOrEditedTask.description"></textarea>
+			<p class="help-block">Detailed description of the task</p>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label">Assigned Users:</label>
+		<div class="controls">
+			<select id="task-users" class="input-xlarge" ui-select2='{width: "element"}' multiple ng-model="newOrEditedTask.user_ids" data-placeholder="Type user names...">
+				<option></option>
+				<option ng-repeat="user in app.sortedUsers()" value="{{ user.id }}">{{ user.name }}</option>
+			</select>
+			<button class="btn" ng-click="newOrEditedTask.user_ids = [app.currentUserId()]">Only Me</button>
+			<p class="help-block">Who is actively working on this task?</p>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label">Status:</label>
+		<div class="controls">
+			<div id="task-status" class="btn-group display-inline-block" ng-model="newOrEditedTask.status" bs-buttons-radio>
+				<button type="button" class="btn" value="default">Default</button>
+				<button type="button" class="btn btn-success" value="ready">Ready</button>
+				<button type="button" class="btn btn-danger" value="blocked">Blocked</button>
+			</div>
+			<input id="task-block-reason" class="input-medium display-inline-block" type="text" placeholder="Why?"
+			       ng-show="newOrEditedTask.status == 'blocked'"
+			       ng-model="newOrEditedTask.block_reason">
+		</div>
+	</div>
+</div>
+</div>
+<div class="modal-footer">
+	<button class="btn" ng-click="scope.newEditTaskDialog = false">Close</button>
+	<button class="btn btn-success" ng-click="newEditTask()">Done</button>
+</div>

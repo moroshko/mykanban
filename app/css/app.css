@@ -1,0 +1,59 @@
+#left-sidebar {
+  width: 200px;
+  vertical-align: top;
+  padding: 10px;
+  background-color: #CEF2F4;
+}
+#left-sidebar tr {
+  padding-top: 10px;
+}
+#left-sidebar tr .shortcut {
+  padding-left: 10px;
+}
+#right-sidebar {
+  width: 200px;
+  vertical-align: top;
+  padding: 10px;
+  background-color: #D1D0FF;
+}
+#footer {
+  margin: 10px auto;
+  text-align: center;
+}
+#footer .love {
+  font-weight: bold;
+  color: red;
+}
+kbd {
+  font-size: 16px;
+  cursor: pointer;
+}
+.icon {
+  color: #4183c4;
+  cursor: pointer;
+}
+.display-inline-block {
+  display: inline-block;
+}
+.text-align-center {
+  text-align: center;
+}
+.help-block {
+  margin-top: 3px !important;
+  font-size: 0.9em;
+  font-style: italic;
+  color: #999;
+}
+.modal .modal-header,
+.modal .modal-footer {
+  padding: 15px 20px;
+}
+.modal .modal-body {
+  padding: 25px 15px 5px;
+}
+.btn-group .btn:not(.active) {
+  opacity: 0.25;
+}
+button i {
+  margin-right: 5px;
+}

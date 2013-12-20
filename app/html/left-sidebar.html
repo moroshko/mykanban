@@ -1,0 +1,65 @@
+<table>
+	<tr>
+		<td class="button">
+			<button class="btn" ng-click="openNewTaskDialog($event)">
+				<i class="icon-plus"></i> Create New Task
+			</button>
+		</td>
+		<td class="shortcut">
+			<kbd ng-click="openNewTaskDialog($event)">N</kbd>
+		</td>
+	</tr>
+	<tr ng-show="selectedTasks.length == 1">
+		<td class="button">
+			<button class="btn" ng-click="openEditTaskDialog()">
+				<i class="icon-pencil"></i> Edit Task
+			</button>
+		</td>
+		<td class="shortcut">
+			<kbd ng-click="openEditTaskDialog()">E</kbd>
+		</td>
+	</tr>
+	<tr ng-show="isBlockTaskPossible()">
+		<td class="button">
+			<button class="btn" ng-click="openBlockTaskDialog()">
+				<i class="icon-remove-sign"></i> Block Task
+			</button>
+		</td>
+		<td class="shortcut">
+			<kbd ng-click="openBlockTaskDialog()">B</kbd>
+		</td>
+	</tr>
+	<tr ng-show="isUnblockTaskPossible()">
+		<td class="button">
+			<button class="btn" ng-click="unblockTask()">
+				<i class="icon-remove-circle"></i> Unblock Task
+			</button>
+		</td>
+		<td class="shortcut">
+			<kbd ng-click="unblockTask()">U</kbd>
+		</td>
+	</tr>
+	<tr ng-show="isPullTaskPossible()">
+		<td class="button">
+			<button class="btn" ng-click="pullTask()">
+				<i class="icon-signout"></i> Pull Task
+			</button>
+		</td>
+		<td class="shortcut">
+			<kbd ng-click="pullTask()">P</kbd>
+		</td>
+	</tr>
+	<tr ng-show="selectedTasks.length > 0">
+		<td class="button">
+			<button class="btn" ng-click="scope.deleteTasksConfirmation = true">
+				<i class="icon-trash"></i>
+				<ng-pluralize count="selectedTasks.length"
+				              when="{'1': 'Delete Task',
+				                     'other': 'Delete Tasks'}"></ng-pluralize>
+			</button>
+		</td>
+		<td class="shortcut">
+			<kbd ng-click="scope.deleteTasksConfirmation = true">D</kbd>
+		</td>
+	</tr>
+</table>

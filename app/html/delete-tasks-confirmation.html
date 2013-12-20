@@ -1,0 +1,18 @@
+<div class="modal-header">
+	<h3>
+		<ng-pluralize count="selectedTasks.length"
+		              when="{'1': 'Delete Task',
+		                     'other': 'Delete Tasks'}"></ng-pluralize>
+	</h3>
+</div>
+<div class="modal-body form-horizontal text-align-center">
+	<div class="control-group">
+		Are you sure?
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn" ng-click="scope.deleteTasksConfirmation = false">Cancel</button>
+	<button class="btn btn-danger" ng-click="deleteTasks()">
+		<i class="icon-trash"></i> Yes
+	</button>
+</div>

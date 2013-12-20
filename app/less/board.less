@@ -1,0 +1,121 @@
+@board-width: 200px;
+
+.board {
+  padding: 5px;
+  background-color: #999;
+  text-align: center;
+
+  .board-title {
+    height: 40px;
+    line-height: 40px;
+    margin: 10px 0 5px;
+    font-size: 1.4em;
+  }
+
+  .column-wrapper {
+    width: @board-width;
+    vertical-align: top;
+    margin: 10px;
+    
+    .column-title-wrapper {
+      position: relative;
+      background-color: #bbb;
+      height: 30px;
+      line-height: 30px;
+
+      .icon-plus {
+        position: absolute;
+        right: 5px;
+        line-height: 30px;
+        opacity: 0;
+      }
+
+      &:hover {
+        .icon-plus {
+          opacity: 1;
+        }
+      }
+    }
+
+    .tasks-wrapper {
+      margin: 0;
+      min-height: 200px;
+
+      .task, .task-placeholder {
+        min-height: 64px;
+        margin-top: 10px;
+        text-align: left;
+        overflow: hidden;
+        cursor: pointer;
+  
+        &.ui-sortable-helper {
+          opacity: 0.8;
+        }
+  
+        &.task-placeholder {
+          background-color: #bbb;
+        }
+  
+        &.selected {
+          box-shadow: 0 0 0 5px #0174FF;
+        }
+  
+        &.default {
+          background-color: #eee;
+        }
+  
+        &.ready {
+          background-color: #6AF569;
+        }
+  
+        &.blocked {
+          background-color: #FC5353;
+        }
+  
+        .task-title {
+          display: block;
+          padding: 10px;
+        }
+  
+        .gravatars {
+          float: right;
+        }
+      }
+    }
+  }
+}
+
+.new-edit-task {
+  width: 600px;
+  margin-left: -300px;
+
+	.control-label {
+		width: 130px;
+	}
+	
+	.controls {
+		margin-left: 150px;
+	}
+
+	#task-block-reason {
+		margin-left: 10px;
+	}
+}
+
+.block-task {
+	width: 440px;
+	margin-left: -220px;
+	
+	label {
+		width: 120px;
+	}
+	
+	.controls {
+		margin-left: 140px;
+	}
+}
+
+.delete-tasks-confirmation {
+  width: 300px;
+  margin-left: -150px;
+}

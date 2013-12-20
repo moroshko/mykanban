@@ -1,0 +1,18 @@
+<div class="modal-header">
+	<h3>Block Task</h3>
+</div>
+<div class="modal-body form-horizontal">
+	<div class="control-group">
+		<label class="control-label" for="block-reason">Block reason:</label>
+		<div class="controls">
+			<input id="block-reason" class="input-large" type="text" ng-model="scope.blockReason">
+			<p class="help-block">Why are you blocking this task?</p>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn" ng-click="scope.blockTaskDialog = false">Cancel</button>
+	<button class="btn btn-danger" ng-click="blockTask()">
+		<i class="icon-remove-sign"></i> Block
+	</button>
+</div>

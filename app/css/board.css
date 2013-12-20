@@ -1,0 +1,103 @@
+.board {
+  padding: 5px;
+  background-color: #999;
+  text-align: center;
+}
+.board .board-title {
+  height: 40px;
+  line-height: 40px;
+  margin: 10px 0 5px;
+  font-size: 1.4em;
+}
+.board .column-wrapper {
+  width: 200px;
+  vertical-align: top;
+  margin: 10px;
+}
+.board .column-wrapper .column-title-wrapper {
+  position: relative;
+  background-color: #bbb;
+  height: 30px;
+  line-height: 30px;
+}
+.board .column-wrapper .column-title-wrapper .icon-plus {
+  position: absolute;
+  right: 5px;
+  line-height: 30px;
+  opacity: 0;
+}
+.board .column-wrapper .column-title-wrapper:hover .icon-plus {
+  opacity: 1;
+}
+.board .column-wrapper .tasks-wrapper {
+  margin: 0;
+  min-height: 200px;
+}
+.board .column-wrapper .tasks-wrapper .task,
+.board .column-wrapper .tasks-wrapper .task-placeholder {
+  min-height: 64px;
+  margin-top: 10px;
+  text-align: left;
+  overflow: hidden;
+  cursor: pointer;
+}
+.board .column-wrapper .tasks-wrapper .task.ui-sortable-helper,
+.board .column-wrapper .tasks-wrapper .task-placeholder.ui-sortable-helper {
+  opacity: 0.8;
+}
+.board .column-wrapper .tasks-wrapper .task.task-placeholder,
+.board .column-wrapper .tasks-wrapper .task-placeholder.task-placeholder {
+  background-color: #bbb;
+}
+.board .column-wrapper .tasks-wrapper .task.selected,
+.board .column-wrapper .tasks-wrapper .task-placeholder.selected {
+  box-shadow: 0 0 0 5px #0174FF;
+}
+.board .column-wrapper .tasks-wrapper .task.default,
+.board .column-wrapper .tasks-wrapper .task-placeholder.default {
+  background-color: #eee;
+}
+.board .column-wrapper .tasks-wrapper .task.ready,
+.board .column-wrapper .tasks-wrapper .task-placeholder.ready {
+  background-color: #6AF569;
+}
+.board .column-wrapper .tasks-wrapper .task.blocked,
+.board .column-wrapper .tasks-wrapper .task-placeholder.blocked {
+  background-color: #FC5353;
+}
+.board .column-wrapper .tasks-wrapper .task .task-title,
+.board .column-wrapper .tasks-wrapper .task-placeholder .task-title {
+  display: block;
+  padding: 10px;
+}
+.board .column-wrapper .tasks-wrapper .task .gravatars,
+.board .column-wrapper .tasks-wrapper .task-placeholder .gravatars {
+  float: right;
+}
+.new-edit-task {
+  width: 600px;
+  margin-left: -300px;
+}
+.new-edit-task .control-label {
+  width: 130px;
+}
+.new-edit-task .controls {
+  margin-left: 150px;
+}
+.new-edit-task #task-block-reason {
+  margin-left: 10px;
+}
+.block-task {
+  width: 440px;
+  margin-left: -220px;
+}
+.block-task label {
+  width: 120px;
+}
+.block-task .controls {
+  margin-left: 140px;
+}
+.delete-tasks-confirmation {
+  width: 300px;
+  margin-left: -150px;
+}

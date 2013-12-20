@@ -1,0 +1,41 @@
+<form class="form-horizontal well span6 offset3">
+	<fieldset>
+		<div id="legend" class="">
+			<legend class="">Sign in to MyKanban</legend>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="email">Email:</label>
+			<div class="controls">
+				<input id="email" class="span3" type="email" placeholder="email" ng-model="email">
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="password">Password:</label>
+			<div class="controls">
+				<input id="password" class="span3" type="password" placeholder="password" ng-model="password">
+			</div>
+		</div>
+
+		<div class="control-group">
+			<div class="controls">
+				<label class="checkbox">
+					<input type="checkbox" value="Remember Me" ng-model="rememberMe">
+					Remember Me
+				</label>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<div class="controls">
+				<button class="btn btn-primary" ng-click="app.login(email, password, rememberMe)" ng-show="!app.isAuthenticating()">Login</button>
+				<span ng-show="app.isAuthenticating()">
+					Authenticating...
+					<i class="icon-spinner icon-spin icon-2x"></i>
+				</span>
+				<span class="text-error" ng-show="app.authenticationError() != null">Incorrect details</span>
+			</div>
+		</div>
+	</fieldset>
+</form>
